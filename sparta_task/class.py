@@ -1,6 +1,6 @@
 class Person:                                            #Person 클래스 정의 시작
     def __init__ (self, age, name, gender):              #객체의 초기화를 담당할 생성자 메서드. self에는 객체자신을 받으며 Person 클래스를 호출할 때 이름, 성별, 나이를 받아 속성을 초기화한다. 
-        self.name = name                                 #입력받은 이름,성별,나이를 객체의 이름,성별,나이 속성으로 저장한다.
+        self.name = name                                 #입력받은 나이,이름,성별을 객체의 나이,이름,성별 속성으로 저장한다.
         self.gender = gender
         self.age = age
     
