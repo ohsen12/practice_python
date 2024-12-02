@@ -1,7 +1,7 @@
 class Person:
-    def __init__ (self, name, age, gender):
-        self.name = name
+    def __init__ (self, age, name, gender):
         self.age = age
+        self.name = name
         while True:                                                 #요구하는 값을 입력할 때까지 반복
             if gender not in ['male','female']:                     #사용자가 입력한 값이 male이나 female이 아니라면 if문이 참이 되어 다음을 출력한다. 
                 print('잘못된 성별을 입력하셨습니다. male 또는 female을 입력하세요.')
@@ -12,8 +12,7 @@ class Person:
                 break                                               #그리고 반복문을 빠져나온다.
         
     def display(self):
-        return f'''이름:{self.name}, 성별:{self.gender} 
-나이:{self.age}'''
+        return f'''이름:{self.name}, 성별:{self.gender}\n나이:{self.age}'''
 
     def greet(self):                                                #Person 클래스의 greet() 메서드를 정의
         if self.age <= 0:                                           #객체의 나이 속성값이 0보다 작을 때 다음을 반환
@@ -23,12 +22,11 @@ class Person:
         else:                                                      #객체의 나이 속성값이 20보다 크거나 같을 때 다음을 반환
             return f'안녕하세요, {self.name}! 성인이시군요!'
         
-    
-p_name = input('이름:')
 p_age = int(input('나이:'))
+p_name = input('이름:')
 p_gender = input('성별:')
 
-Person = Person(p_name, p_age, p_gender)
+Person = Person(p_age, p_name, p_gender)
 
 
 print(Person.display())                                    
