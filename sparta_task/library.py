@@ -33,7 +33,6 @@ for crime in crime_list:                           #반복해서 여러 줄 쓸 
 #총검거율 = (범죄 총 검거수)/(범죄 총 발생수) *100
 arrests = pivot.loc[:, [f'{crime}(검거)'for crime in crime_list]].sum(axis=1)  # ~(검거) 열에 있는 데이터를 구별(각행. axis=1)을 기준으로 합한다.
 cases = pivot.loc[:, [f'{crime}(발생)'for crime in crime_list]].sum(axis=1) # ~(발생) 열에 있는 데이터를 구별(각행. axis=1)을 기준으로 합한다.
-
 pivot['검거율'] = (arrests / cases) *100
 
 #필요없는 컬럼 한번에 지우기(del은 한번에 하나의 컬럼밖에 삭제 못 함)
@@ -46,4 +45,4 @@ pivot.rename(columns = {'강간(발생)':'강간',
 '절도(발생)':'절도',
 '폭력(발생)':'폭력' }, inplace = True)
 
-print(pivot.head(2))
+print(pivot.head(2)) #출력예시처럼 보기 위함
