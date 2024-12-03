@@ -1,6 +1,6 @@
 import pandas as pd #pandas 라이브러리를 pd라는 이름으로 불러온다.
 
-df = pd.read_excel(r"C:\Users\tpsdm\OneDrive\바탕 화면\관서별 5대범죄 발생 및 검거.xlsx") #엑셀데이터를 불러와 df 변수에 저장한다. (read는 데이터프레임의 형태로 데이터를 가져옴)
+df = pd.read_excel(r"C:\Users\tpsdm\OneDrive\바탕 화면\python_practice\관서별 5대범죄 발생 및 검거.xlsx") #엑셀데이터를 불러와 df 변수에 저장한다. (read는 데이터프레임의 형태로 데이터를 가져옴)
 
 #관서명(key)에 매치되는 구(value)의 딕셔너리
 mapping_dict = {
@@ -18,7 +18,7 @@ mapping_dict = {
 #매칭이 안되면 결측값 NaN를 반환하기 때문에, 그 경우 '구 없음'이란 값으로 채워준다.
 df['구별'] = df['관서명'].map(mapping_dict).fillna('구 없음')
 
-#pivot_table 을 사용하여 df를 index가 '구별'인 데이터프레임으로 바꿔준다.  ##이 부분 나중에 drop을 사용하지 않고도 처음부터 바꾸는 순간 관서명을 탈락시킬 수 있는 방법을 모르겠음
+#pivot_table 을 사용하여 df를 index가 '구별'인 데이터프레임으로 바꿔준다.  
 #aggfunc='sum' 인자를 통해 동일한 '구별' 값을 가진 행들의 데이터를 합산한다.
 pivot = pd.pivot_table(df, index = '구별', aggfunc = 'sum')
 
@@ -31,9 +31,9 @@ for crime in crime_list:                           #반복해서 여러 줄 쓸 
 
 #구별(각 행마다) 모든 범죄의 총검거율 컬럼 생성하기
 #총검거율 = (범죄 총 검거수)/(범죄 총 발생수) *100
-arrests = pivot.loc[:, [f'{crime}(검거)'for crime in crime_list]].sum(axis=1)  # ~(검거) 열에 있는 데이터를 구별(각행. axis=1)을 기준으로 합한다.
-cases = pivot.loc[:, [f'{crime}(발생)'for crime in crime_list]].sum(axis=1) # ~(발생) 열에 있는 데이터를 구별(각행. axis=1)을 기준으로 합한다.
-pivot['검거율'] = (arrests / cases) *100
+arrests = pivot.loc[:, [f'{crime}(검거)'for crime in crime_list]].sum(axis=1)  # ~(검거) 열에 있는 데이터를 구별(각 열. axis=1)을 기준으로 합한다.
+cases = pivot.loc[:, [f'{crime}(발생)'for crime in crime_list]].sum(axis=1) # ~(발생) 열에 있는 데이터를 구별(각 열. axis=1)을 기준으로 합한다.
+pivot['검거율'] = (arrests / cases) *100  #각 행 (구별) 총 검거율
 
 #필요없는 컬럼 한번에 지우기(del은 한번에 하나의 컬럼밖에 삭제 못 함)
 pivot.drop(columns = ['강간(검거)','강도(검거)','살인(검거)','절도(검거)','폭력(검거)','소계(발생)','소계(검거)'], inplace = True)

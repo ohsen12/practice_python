@@ -1,6 +1,6 @@
 import pandas as pd 
 
-df = pd.read_excel(r"C:\Users\tpsdm\OneDrive\바탕 화면\관서별 5대범죄 발생 및 검거.xlsx") 
+df = pd.read_excel(r"C:\Users\tpsdm\OneDrive\바탕 화면\python_practice\관서별 5대범죄 발생 및 검거.xlsx") 
 
 mapping_dict = {
                 '서대문서': '서대문구', '수서서': '강남구', '강서서': '강서구', '서초서': '서초구',
@@ -38,7 +38,7 @@ pivot.rename(columns = {'강간(발생)':'강간',
 
 #추가 도전 과제
 
-pop = pd.read_csv(r"C:\Users\tpsdm\OneDrive\바탕 화면\pop_kor.csv", index_col='구별')  #pandas를 사용해 데이터를 불러오는데 인덱스를 '구별'로 설정한다.
+pop = pd.read_csv(r"C:\Users\tpsdm\OneDrive\바탕 화면\python_practice\pop_kor.csv", index_col='구별')  #pandas를 사용해 데이터를 불러오는데 인덱스를 '구별'로 설정한다.
 print(pop.head())
 
 print() #최종 결과값끼리 띄우기 위해 추가했음
