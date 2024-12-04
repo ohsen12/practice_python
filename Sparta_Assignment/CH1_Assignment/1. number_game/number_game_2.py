@@ -6,16 +6,16 @@ while True:
     if player == 0:                                                       
         print('0을 입력하여 종료합니다.')
         break
-    if player > 10:                                                     #플레이어가 10을 벗어난 숫자를 입력하면 반복문을 다시 시작한다.
+    if player > 10:                                                  #플레이어가 10을 벗어난 숫자를 입력하면 반복문을 다시 시작한다.
         print('1부터 10까지의 숫자만 입력하세요.')
         continue
-    if player - computer == 1 or computer - player == 1:                #1의 오차범위가 났을 때에만 정말 가깝다고 알려준다. 
+    if player - computer == 1 or computer - player == 1:             #1의 오차범위가 났을 때에만 정말 가깝다고 알려준다. 
         print('정말 가깝습니다!')
     elif player > computer:                                              
         print('입력한 숫자가 더 큽니다.')
     elif player < computer:
         print('입력한 숫자가 더 작습니다.')                                
-    else:                                                               #정답을 맞힌 경우 게임을 다시 시작할 것인지 물어본다.                        
+    else:                                                            #정답을 맞힌 경우 게임을 다시 시작할 것인지 물어본다.                        
         print('정답입니다!')
         restart = input ('''게임을 다시 시작하시겠습니까?                 
 Y 또는 N 으로 대답하세요.''')

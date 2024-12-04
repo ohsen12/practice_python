@@ -18,7 +18,7 @@ class Person:
         if self.age <= 0:                                           #객체의 나이 속성값이 0보다 작을 때 다음을 반환
             return f'안녕, {self.name}! 아직 안 태어났구나!'
         elif 1 <= self.age < 20:
-            return f'안녕, {self.name}! 미성년자구나!'               #객체의 나이 속성값이 1보다 크거나 같고 20보다 작을 때 다음을 반환
+            return f'안녕, {self.name}! 미성년자구나!'                  #객체의 나이 속성값이 1보다 크거나 같고 20보다 작을 때 다음을 반환
         else:                                                      #객체의 나이 속성값이 20보다 크거나 같을 때 다음을 반환
             return f'안녕하세요, {self.name}! 성인이시군요!'
         
